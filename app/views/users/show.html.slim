@@ -1,0 +1,20 @@
+p#notice = notice
+p
+.col-12
+  strong Nombre:
+  = @user.name
+.col-12
+  strong Apodo:
+  = @user.nickname
+.col-12
+  strong Email:
+  = @user.email
+.col-12
+  strong Imagen:
+  img.[src=asset_path("#{@user.image}.jpg")  style="margin: 3px"]
+
+//== render @user
+
+=> link_to 'Edit', edit_user_path(@user)
+'|
+=< link_to 'Back', users_path

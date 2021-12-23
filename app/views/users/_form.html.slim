@@ -1,0 +1,25 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@user.errors.count, 'error')} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    .col-12
+      = f.label :name
+      = f.text_field :name
+    .col-12
+      = f.label :nickname
+      = f.text_field :nickname
+    .col-12
+      = f.label :email
+      = f.text_field :email
+    .col-12 
+      = label_tag 'Emociones'
+      - I18n.t('form').each do |key, value|
+        .col-6.d-flex.mr-1
+          =check_box "#{key}", key
+          =label "#{key}", value
+  .actions = f.submit
