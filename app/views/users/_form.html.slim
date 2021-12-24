@@ -20,6 +20,6 @@
       = label_tag 'Emociones'
       - I18n.t('form').each do |key, value|
         .col-6.d-flex.mr-1
-          =check_box "#{key}", key
-          =label "#{key}", value
+          =check_box "feel[#{key}]", key
+          =label "", value
   .actions = f.submit
