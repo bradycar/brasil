@@ -7,11 +7,9 @@ h1 = @user.name
 .col-12
   strong Email:
   = @user.email 
-/ .col-12
-/   strong Imagen:
-/   img.[src=asset_path("#{@user.image}.jpg")  style="margin: 3px"]
-
-/== render @user
+.col-12
+  strong Imagen:
+  img.[src=asset_path("#{@user.image}.jpg")  style="width: 250px"]
 
 => link_to 'Editar usuario', edit_user_path(@user) ,class:'btn btn-edit'
 
