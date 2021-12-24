@@ -7,4 +7,4 @@ user.card.mb-4.mt-2
   .card-footer 
     = link_to image_tag("eye.svg", class: 'btn btn-img'), user, data: { 'turbo-frame': 'show_user' }
     = link_to image_tag("edit.svg", class: 'btn btn-img'), edit_user_path(user), data: { 'turbo-frame': 'edit_user' }
-    = link_to image_tag("delete.svg", class: 'btn btn-img'), user, data: { 'turbo-frame': 'delete_user' }
+    / = link_to image_tag("delete.svg",method: :delete, class: 'btn btn-img'), user, data: { 'turbo-frame': 'delete_user' }
