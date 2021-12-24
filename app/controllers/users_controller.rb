@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        render turbo_stream: turbo_stream.append(:users, @user)
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
     Rails.logger.info "Actual feel of user: #{user_params}--------------------------------------------"
     respond_to do |format|
       if @user.update(user_params)
+        render turbo_stream: turbo_stream.append(:users, @user)
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
