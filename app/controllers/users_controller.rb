@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    puts filing
+    Rails.logger.info "Actual feel of user: #{user_params}--------------------------------------------"
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
@@ -58,9 +58,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def filing
-    params.require(:angry)
-    params.require(:happy)
+  def feeling_params
+    feel='no cambie'
+    emotions = params[:feel]
+    if emotions != nil
+      emotions.each do |key, value|
+        if value.values.first == '1'
+          feel = key
+        end
+      end
+    end
+    feel
   end
 
   private
@@ -71,6 +79,11 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :image, :image, :nickname)
+      {
+        name: params.require(:user)[:name],
+        nickname: params.require(:user)[:nickname],
+        image: feeling_params,
+        email: params.require(:user)[:email]
+      }
     end
 end
