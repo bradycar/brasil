@@ -19,7 +19,7 @@
     .col-12.mb-3
       .mt-3= label_tag 'Emociones'
       - I18n.t('form').each do |key, value|
-        .col-6.d-flex.mr-2
-          .mr-2 =check_box "#{key}", key
-          .ml-2 =label "#{key}", value
+        .col-6.d-flex.mr-1
+          =check_box "feel[#{key}]", key
+          =label "", value
   .actions = f.submit
