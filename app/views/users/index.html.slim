@@ -6,14 +6,3 @@ h1 Listado de usuarios
 = turbo_stream_from :users
 = turbo_frame_tag :users, class: 'row' do
   = render partial: 'user', collection: @users
-
-- @users.each do |user|
-  .card.mt-4
-    .card-body
-      .col-12.d-flex.mg-auto
-        img.[src=asset_path("#{user.image}.jpg")  style="width: 50px"]
-        h2= user.nickname
-    .card-footer 
-      / = link_to image_tag("eye.svg",method: :delete, class: 'btn btn-img'), user
-      = link_to image_tag("edit.svg",method: :delete, class: 'btn btn-img'), edit_user_path(user)
-      = link_to image_tag("delete.svg",method: :delete, class: 'btn btn-img'), user
