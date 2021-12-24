@@ -5,7 +5,6 @@
       ul
         - @user.errors.full_messages.each do |message|
           li = message
-
   .field
     .col-12.mb-3
       .mr-2 = f.label :name , 'Nombre'
@@ -20,6 +19,8 @@
       .mt-3= label_tag 'Emociones'
       - I18n.t('form').each do |key, value|
         .col-6.d-flex.mr-1
-          =check_box "feel[#{key}]", key
-          =label "", value
+          / =radio_button_tag "feel[#{key}]", key,type:"radio" 
+          / =label "", value
+          input type="radio" id="#{key}" name="feel" value="#{key}"
+          = label "feel[#{key}]"  , value
   .actions = f.submit
