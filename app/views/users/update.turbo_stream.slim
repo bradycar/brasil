@@ -1,0 +1,6 @@
+- if @user.errors.present?
+  = notice_stream(message: :error, status: 'danger')
+  = form_user_stream(user: @user)
+- else
+  = notice_stream(message: :update, status: 'success')
+  = turbo_stream.replace dom_id(@user), partial: 'user', locals: { user: @user }

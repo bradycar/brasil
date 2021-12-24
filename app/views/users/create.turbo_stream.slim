@@ -1,0 +1,8 @@
+- if @user.errors.present?
+  = notice_stream(message: :error, status: 'danger')
+  = form_user_stream(user: @user)
+- else
+  = notice_stream(message: :create, status: 'success')
+  = turbo_stream.replace :new_user do
+    = turbo_frame_tag :new_user
+  = turbo_stream.prepend 'users', partial: 'user', locals: { user: @user}

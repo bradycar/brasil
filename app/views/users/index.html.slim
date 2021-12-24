@@ -2,6 +2,11 @@ h1 Listado de usuarios
 
 = link_to 'Crear usuario', new_user_path , class:'btn btn-create'
 
+= turbo_frame_tag :new_user
+= turbo_stream_from :users
+= turbo_frame_tag :users, class: 'row' do
+  = render partial: 'user', collection: @users
+
 - @users.each do |user|
   .card.mt-4
     .card-body
