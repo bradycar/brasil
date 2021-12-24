@@ -7,12 +7,13 @@ h1 Listado de usuarios
 = turbo_frame_tag :users, class: 'row' do
   = render partial: 'user', collection: @users
 
-/- @users.each do |user|
-/  .card.mt-4
-/    .card-body
-/      h2= user.nickname
-/    .card-footer 
-/      = link_to 'Ver', user , class: 'btn btn-show'
-/      = link_to 'Editar usuario', edit_user_path(user), class: 'btn btn-edit'
-/      = link_to image_tag("delete.svg",method: :delete, class: 'btn btn-delete'), user
-/      = link_to 'Eliminar usuario', user, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-delete'
+- @users.each do |user|
+  .card.mt-4
+    .card-body
+      .col-12.d-flex.mg-auto
+        img.[src=asset_path("#{user.image}.jpg")  style="width: 50px"]
+        h2= user.nickname
+    .card-footer 
+      / = link_to image_tag("eye.svg",method: :delete, class: 'btn btn-img'), user
+      = link_to image_tag("edit.svg",method: :delete, class: 'btn btn-img'), edit_user_path(user)
+      = link_to image_tag("delete.svg",method: :delete, class: 'btn btn-img'), user

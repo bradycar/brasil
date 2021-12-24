@@ -19,8 +19,6 @@
       .mt-3= label_tag 'Emociones'
       - I18n.t('form').each do |key, value|
         .col-6.d-flex.mr-1
-          / =radio_button_tag "feel[#{key}]", key,type:"radio" 
-          / =label "", value
           input type="radio" id="#{key}" name="feel" value="#{key}"
           = label "feel[#{key}]"  , value
   .actions = f.submit
