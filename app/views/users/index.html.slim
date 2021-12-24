@@ -1,19 +1,29 @@
-h1 Listing users
+h1 Listado de usuarios
 
-table
-  thead
-    tr
-      th
-      th
-      th
 
-  tbody
-    - @users.each do |user|
-      tr
-        td = link_to 'Show', user
-        td = link_to 'Edit', edit_user_path(user)
-        td = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
+- @users.each do |user|
+  .card 
+    .card-header 
+    
+    .card-body
+
+        strong Nombre:
+        = user.name
+    
+        strong Apodo:
+        = user.nickname
+    
+        strong Email:
+        = user.email
+
+    .card-footer 
+
+      = link_to 'Ver', user , class: 'btn btn-show'
+      = link_to 'Editar usuario', edit_user_path(user), class: 'btn btn-edit'
+      = link_to image_tag("delete.svg",method: :delete, class: 'btn btn-delete'), user
+      = link_to 'Eliminar usuario', user, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-delete'
 
 br
 
-= link_to 'New User', new_user_path
+= link_to 'Crear usuario', new_user_path , class:'btn btn-create'
+'

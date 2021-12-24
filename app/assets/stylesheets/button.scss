@@ -1,0 +1,61 @@
+.btn-create {
+    background-color: #ffd700 !important;
+    border-radius: 25px;
+    margin: 0.5rem;
+}
+
+.btn-back{
+    background-color: 	#ffa07a;
+    border-radius: 25px;
+    margin: 0.5rem;
+}
+
+// .btn-delete{
+//     background-color:#dc143c;
+//     border-radius: 25px;
+//     margin: 0.5rem;
+// }
+
+.btn-delete{
+    background-image:url("../images/delete.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2rem;
+    margin-left: auto;
+  }
+
+.btn-show{
+    background-color: #daa520;
+    border-radius: 25px;
+    margin: 0.5rem;
+}
+
+.btn-edit{
+    background-color: #daa520;
+    border-radius: 25px;
+    margin: 0.5rem;
+}
+
+form {
+    .field {
+      @extend .mb-2;
+
+      label {
+        @extend .form-label;
+      }
+      input, textarea {
+        @extend .form-control;
+      }
+    }
+    .actions {
+      input[type='submit'] {
+        @extend .btn;
+        @extend .btn-create;
+      }
+    }
+  }
+
+
+body {
+    background-color: #faf0e6;
+}
