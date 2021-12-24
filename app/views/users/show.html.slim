@@ -1,15 +1,17 @@
 
 = turbo_frame_tag :show_user do
-  h1 = @user.name
+  .card
+    .card-header
+      h1 = @user.name
+    .card-body
+      .col-12
+        img.[src=asset_path("#{@user.image}.jpg")  style="width: 250px"]
+      .col-12
+        strong Apodo:
+        = @user.nickname
+      .col-12
+        strong Email:
+        = @user.email 
 
-  .col-12
-    img.[src=asset_path("#{@user.image}.jpg")  style="width: 250px"]
-  .col-12
-    strong Apodo:
-    = @user.nickname
-  .col-12
-    strong Email:
-    = @user.email 
-
-  => link_to 'Editar usuario', edit_user_path(@user) ,class:'btn btn-edit', data: { 'turbo-frame': 'edit_user' }
+      => link_to 'Cerrar', users_path ,class:'btn btn-edit'
 
