@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
@@ -58,18 +57,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def feeling_params
-    feel='no cambie'
-    emotions = params[:feel]
-    if emotions != nil
-      emotions.each do |key, value|
-        if value.values.first == '1'
-          feel = key
-        end
-      end
-    end
-    feel
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -82,7 +69,7 @@ class UsersController < ApplicationController
       {
         name: params.require(:user)[:name],
         nickname: params.require(:user)[:nickname],
-        image: feeling_params,
+        image: params[:feel],
         email: params.require(:user)[:email]
       }
     end
