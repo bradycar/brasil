@@ -64,12 +64,19 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def random_number
+      arreglo=[]
+      arreglo << params[:feel]
+      arreglo << rand(1..3).to_s
+      arreglo.join("")
+    end
+
     # Only allow a list of trusted parameters through.
     def user_params
       {
         name: params.require(:user)[:name],
         nickname: params.require(:user)[:nickname],
-        image: params[:feel],
+        image: random_number.to_s,
         email: params.require(:user)[:email]
       }
     end
