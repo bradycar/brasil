@@ -1,29 +1,13 @@
 h1 Listado de usuarios
 
+= link_to 'Crear usuario', new_user_path , class:'btn btn-create'
 
 - @users.each do |user|
-  .card 
-    .card-header 
-    
+  .card.mt-4
     .card-body
-
-        strong Nombre:
-        = user.name
-    
-        strong Apodo:
-        = user.nickname
-    
-        strong Email:
-        = user.email
-
+      h2= user.nickname
     .card-footer 
-
       = link_to 'Ver', user , class: 'btn btn-show'
       = link_to 'Editar usuario', edit_user_path(user), class: 'btn btn-edit'
       = link_to image_tag("delete.svg",method: :delete, class: 'btn btn-delete'), user
       = link_to 'Eliminar usuario', user, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-delete'
-
-br
-
-= link_to 'Crear usuario', new_user_path , class:'btn btn-create'
-'
