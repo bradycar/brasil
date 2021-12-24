@@ -1,8 +1,10 @@
 h1 Listado de usuarios
 
-= link_to 'Crear usuario', new_user_path , class:'btn btn-create'
+= link_to 'Crear usuario', new_user_path , class:'btn btn-create', data: { 'turbo-frame': 'new_user' }
 
 = turbo_frame_tag :new_user
+= turbo_frame_tag :edit_user
+= turbo_frame_tag :show_user
 = turbo_stream_from :users
 = turbo_frame_tag :users, class: 'row' do
   = render partial: 'user', collection: @users

@@ -1,9 +1,7 @@
 = link_to '< Volver', users_path, class:'mt-2 mb-3 btn btn-back'
 
-= turbo_frame_tag :new_article do
-
+= turbo_frame_tag :new_user do
   .card
     .card-body
       h1.card-title Crear Usuario
-    .card-body
       == render 'form'

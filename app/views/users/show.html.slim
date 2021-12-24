@@ -1,14 +1,15 @@
-=< link_to 'Volver', users_path, class:'btn btn-back'
-h1 = @user.name
 
-.col-12
-  img.[src=asset_path("#{@user.image}.jpg")  style="width: 250px"]
-.col-12
-  strong Apodo:
-  = @user.nickname
-.col-12
-  strong Email:
-  = @user.email 
+= turbo_frame_tag :show_user do
+  h1 = @user.name
 
-=> link_to 'Editar usuario', edit_user_path(@user) ,class:'btn btn-edit'
+  .col-12
+    img.[src=asset_path("#{@user.image}.jpg")  style="width: 250px"]
+  .col-12
+    strong Apodo:
+    = @user.nickname
+  .col-12
+    strong Email:
+    = @user.email 
+
+  => link_to 'Editar usuario', edit_user_path(@user) ,class:'btn btn-edit', data: { 'turbo-frame': 'edit_user' }
 

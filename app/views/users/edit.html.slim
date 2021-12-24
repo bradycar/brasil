@@ -1,7 +1,4 @@
-=> link_to 'Volver', @user,class: 'btn btn-edit'
-=< link_to 'Volver al listado', users_path, class:'btn btn-back'
-
-h1 Editando Usuario
-
-== render 'form'
+= turbo_frame_tag :edit_user do
+    h1 Editando Usuario
+    == render 'form'
 
